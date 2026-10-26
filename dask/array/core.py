@@ -27,7 +27,6 @@ from packaging.version import Version
 from tlz import accumulate, concat, first, partition
 from toolz import frequencies
 
-from dask._compatibility import import_optional_dependency
 from dask.core import flatten
 
 from dask import compute, config, core
