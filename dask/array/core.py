@@ -27,8 +27,6 @@ from packaging.version import Version
 from tlz import accumulate, concat, first, partition
 from toolz import frequencies
 
-from dask.core import flatten
-
 from dask import compute, config, core
 from dask._task_spec import Alias, List, Task, TaskRef
 from dask.array import chunk
@@ -61,7 +59,7 @@ from dask.base import (
 from dask.blockwise import BlockwiseDep, broadcast_dimensions
 from dask.blockwise import blockwise as core_blockwise
 from dask.context import globalmethod
-from dask.core import quote, reshapelist
+from dask.core import flatten, quote, reshapelist
 from dask.delayed import Delayed, delayed
 from dask.highlevelgraph import HighLevelGraph, MaterializedLayer
 from dask.layers import ArrayBlockIdDep, ArraySliceDep, ArrayValuesDep
