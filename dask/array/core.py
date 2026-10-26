@@ -30,8 +30,6 @@ from toolz import frequencies
 from dask._compatibility import import_optional_dependency
 from dask.core import flatten
 
-xr = import_optional_dependency("xarray", errors="ignore")
-
 from dask import compute, config, core
 from dask._task_spec import Alias, List, Task, TaskRef
 from dask.array import chunk
@@ -3632,7 +3630,7 @@ def from_array(
         raise ValueError(
             "Array is already a dask array. Use 'asarray' or 'rechunk' instead."
         )
-
+    xr = sys.modules.get("xarray")
     if xr is not None and isinstance(x, xr.DataArray) and x.chunks is not None:
         if isinstance(x.data, Array):
             return x.data
